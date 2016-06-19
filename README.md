@@ -55,13 +55,13 @@ pod "TableViewPopoverPresenting"
    var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer!
    ```
 
-2. Call `initializeTableViewPopover` in your `viewDidLoad` method:
+2. Call `initializeTableViewPopover` in `viewDidLoad`:
 
    ```swift
    initializeTableViewPopover(#selector(popoverPresentingGestureDetected(_:)))
    ```
 
-3. Add this method:
+3. Add this method to the controller:
 
    ```swift
    func popoverPresentingGestureDetected(gesture: UIGestureRecognizer?) {
