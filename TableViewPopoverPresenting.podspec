@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
   s.name             = 'TableViewPopoverPresenting'
-  s.version          =  "1.0.0"
-  s.summary          = 'Display popovers on taps over your table views cells. It was hard. Now it's easy.'
+  s.version          = "1.0.0"
+  s.summary          = 'Display popovers on taps over your table views cells. It was hard. Now it\'s easy.'
+
   s.description      = %{
     TableViewPopoverPresenting is a simple, drop-in protocol that gives your
       table views the power to display presented view controllers in popovers
