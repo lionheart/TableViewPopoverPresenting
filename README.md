@@ -63,21 +63,13 @@ pod "TableViewPopoverPresenting"
 
        # ...
 
-       initializeTableViewPopover(#selector(popoverPresentingGestureDetected(_:)))
+       initializeTableViewPopover()
 
        # ...
    }
    ```
 
-3. Add this method to the controller:
-
-   ```swift
-   func popoverPresentingGestureDetected(gesture: UIGestureRecognizer?) {
-       handlePopoverGesture(gesture)
-   }
-   ```
-
-4. And, lastly, implement `viewControllerForPopoverAtIndexPath` to define which view controllers to show at which index paths. E.g.:
+3. And, lastly, implement `viewControllerForPopoverAtIndexPath` to define which view controllers to show at which index paths. E.g.:
 
    ```swift
    func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
@@ -87,6 +79,8 @@ pod "TableViewPopoverPresenting"
            actionSheet.addAction(UIAlertAction(title: "Green", style: .Default)) {}
            actionSheet.addAction(UIAlertAction(title: "Blue", style: .Default)) {}
            return actionSheet
+       } else {
+           return nil
        }
    }
    ```
