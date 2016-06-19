@@ -37,9 +37,9 @@ pod "TableViewPopoverPresenting"
 
 1. Install TableViewPopoverPresenting through Cocoapods by adding the following line to your Podfile.
 
-        ```ruby
-        pod "TableViewPopoverPresenting"
-        ```
+   ```ruby
+   pod "TableViewPopoverPresenting"
+   ```
 
 2. Import `TableViewPopoverPresenting` in the file with your table view controller.
 
