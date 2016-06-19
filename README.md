@@ -43,35 +43,45 @@ pod "TableViewPopoverPresenting"
 
 2. Import `TableViewPopoverPresenting` in the file with your table view controller.
 
-        import TableViewPopoverPresenting
+   ```swift
+   import TableViewPopoverPresenting
+   ```
 
 Now, in each view controller you want to handle taps:
 
 1. Define `popoverPresentingTapGestureRecognizer`.
 
-        var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer!
+   ```swift
+   var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer!
+   ```
 
 2. Call `initializeTableViewPopover` in your `viewDidLoad` method:
 
-        initializeTableViewPopover(#selector(popoverPresentingGestureDetected(_:)))
+   ```swift
+   initializeTableViewPopover(#selector(popoverPresentingGestureDetected(_:)))
+   ```
 
 3. Add this method:
 
-        func popoverPresentingGestureDetected(gesture: UIGestureRecognizer?) {
-            handlePopoverGesture(gesture)
-        }
+   ```swift
+   func popoverPresentingGestureDetected(gesture: UIGestureRecognizer?) {
+       handlePopoverGesture(gesture)
+   }
+   ```
 
 4. And, lastly, implement `viewControllerForPopoverAtIndexPath` to define which view controllers to show at which index paths. E.g.:
 
-            func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
-                if indexPath.row == 0 {
-                    let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .ActionSheet)
-                    actionSheet.addAction(UIAlertAction(title: "Red", style: .Default)) {}
-                    actionSheet.addAction(UIAlertAction(title: "Green", style: .Default)) {}
-                    actionSheet.addAction(UIAlertAction(title: "Blue", style: .Default)) {}
-                    return actionSheet
-                }
-            }
+   ```swift
+   func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
+       if indexPath.row == 0 {
+           let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .ActionSheet)
+           actionSheet.addAction(UIAlertAction(title: "Red", style: .Default)) {}
+           actionSheet.addAction(UIAlertAction(title: "Green", style: .Default)) {}
+           actionSheet.addAction(UIAlertAction(title: "Blue", style: .Default)) {}
+           return actionSheet
+       }
+   }
+   ```
 
 You're done! A nice action sheet will appear when a tap is detected on the first row of any section. Easy, right?
 
