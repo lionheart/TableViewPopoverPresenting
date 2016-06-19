@@ -47,7 +47,7 @@ pod "TableViewPopoverPresenting"
    import TableViewPopoverPresenting
    ```
 
-Now, in each view controller you want to handle taps:
+#### Now, for each view controller, do the following:
 
 1. Define `popoverPresentingTapGestureRecognizer`.
 
