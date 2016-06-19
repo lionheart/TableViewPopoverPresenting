@@ -12,14 +12,17 @@ TableViewPopoverPresenting is a simple, drop-in protocol that gives your table v
 In the good ole' days, in order to present popovers over your table view cells, you had to do a few things:
 
 1. Instantiate a `UITapGestureRecognizer`.
-2. ...add it to your `UITableView`.
-3. ...make your `UIViewController` conform to `UIGestureRecognizerDelegate`.
-4. ...create a method to handle the tap.
-5. ...make sure the tap gesture recognizer doesn't override the standard `UITableView` touch handlers for `didSelectRowAtIndexPath`.
-6. ...present the view controller exactly where the user tapped.
-7. Etc.
+2. Add it to your `UITableView`.
+3. Make your `UIViewController` conform to `UIGestureRecognizerDelegate`.
+4. Create a method to handle the tap.
+5. Make sure the tap gesture recognizer doesn't override the standard `UITableView` touch handlers for `didSelectRowAtIndexPath`.
+6. Find the point where the user tapped.
+7. Retrieve which index path the user tapped corresponding to that point.
+8. Make sure that you actually want to show a view controller at that index path.
+9. Decide on which view controller to show.
+10. And finally, present the view controller exactly where the user tapped.
 
-And each of these things requires going through StackOverflow posts with a fine-toothed comb to make sure you're doing everything the "right" way. Obviously, that's lame. You shouldn't need to do all of this work for something which should be simple. And that's where TableViewPopoverPresenting comes in.
+Each one of these items requires going through StackOverflow posts with a fine-toothed comb to make sure you're doing everything the "right" way. Obviously, that's lame. You shouldn't need to do all of this work for something which should be simple. And that's where TableViewPopoverPresenting comes in.
 
 ## Installation
 
