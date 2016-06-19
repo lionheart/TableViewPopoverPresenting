@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TableViewPopoverPresenting'
-  s.version          = '1.0.0'
+  s.version          =  "1.0.0"
   s.summary          = 'A drop-in protocol that lets you present popovers directly from table view cells.'
   s.description          = 'A drop-in protocol that lets you present popovers directly from table view cells.'
 
