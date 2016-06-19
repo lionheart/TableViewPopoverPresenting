@@ -58,7 +58,15 @@ pod "TableViewPopoverPresenting"
 2. Call `initializeTableViewPopover` in `viewDidLoad`:
 
    ```swift
-   initializeTableViewPopover(#selector(popoverPresentingGestureDetected(_:)))
+   func viewDidLoad() {
+       super.viewDidLoad()
+
+       # ...
+
+       initializeTableViewPopover(#selector(popoverPresentingGestureDetected(_:)))
+
+       # ...
+   }
    ```
 
 3. Add this method to the controller:
