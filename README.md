@@ -22,7 +22,7 @@ In the good ole' days, in order to present popovers over your table view cells, 
 7. Retrieve which index path the user tapped corresponding to that point.
 8. Make sure that you actually want to show a view controller at that index path.
 9. Decide on which view controller to show.
-10. And finally, present the view controller exactly where the user tapped.
+10. And finally, present the view controller exactly where the user tapped in a popover.
 
 Each one of these items requires going through StackOverflow posts with a fine-toothed comb to make sure you're doing everything the "right" way. Obviously, that's lame. You shouldn't need to do all of this work for something which should be simple. And that's where TableViewPopoverPresenting comes in.
 
