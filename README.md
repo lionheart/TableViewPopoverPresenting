@@ -101,6 +101,6 @@ TableViewPopoverPresenting is available under the Apache 2.0 license. See the [L
 
 ## Donate
 
-Donations help support our open source efforts. Thanks so much for your contribution!
+Donations help support our open source efforts (plus, you'll get a cool Lionheart Software sticker as a token of our appreciation!).
 
-<a href="https://www.coinbase.com/checkouts/6c1ab0364de39c1f970f0af6263a93e0" target="_blank">Donate Bitcoins</a>
+<a href="https://www.coinbase.com/checkouts/0bbaac2f6c0a10f7854c34a0035d0a32" target="_blank">Donate</a>
