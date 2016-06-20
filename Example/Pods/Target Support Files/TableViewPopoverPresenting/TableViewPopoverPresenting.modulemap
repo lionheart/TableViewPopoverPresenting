@@ -1,0 +1,6 @@
+framework module TableViewPopoverPresenting {
+  umbrella header "TableViewPopoverPresenting-umbrella.h"
+
+  export *
+  module * { export * }
+}
