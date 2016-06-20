@@ -49,13 +49,7 @@ pod "TableViewPopoverPresenting"
 
 #### Now, for each view controller, do the following:
 
-1. Define `popoverPresentingTapGestureRecognizer`.
-
-   ```swift
-   var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer!
-   ```
-
-2. Call `initializeTableViewPopover` in `viewDidLoad`:
+1. Call `initializeTableViewPopover` in `viewDidLoad`:
 
    ```swift
    func viewDidLoad() {
@@ -69,7 +63,7 @@ pod "TableViewPopoverPresenting"
    }
    ```
 
-3. And, lastly, implement `viewControllerForPopoverAtIndexPath` to define which view controllers to show at which index paths. E.g.:
+2. Implement `viewControllerForPopoverAtIndexPath` to define which view controllers to show at which index paths. E.g.:
 
    ```swift
    func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
@@ -85,7 +79,7 @@ pod "TableViewPopoverPresenting"
    }
    ```
 
-You're done! A nice action sheet will appear when a tap is detected on the first row of any section. Easy, right?
+And...that's it. You're done. A nice action sheet will appear when a tap is detected on the first row of any section. Easy, right?
 
 ## Requirements
 
