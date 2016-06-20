@@ -52,10 +52,6 @@ public extension TableViewPopoverPresenting where Self: UIViewController {
     }
 }
 
-protocol TableViewPopoverPresentingGestureRecognizerDelegate: UIGestureRecognizerDelegate {
-
-}
-
 extension UIViewController: UIGestureRecognizerDelegate {
     public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         guard let controller = self as? TableViewPopoverPresenting else {
