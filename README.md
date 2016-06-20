@@ -98,3 +98,7 @@ Dan Loewenherz, dan@lionheartsw.com
 ## License
 
 TableViewPopoverPresenting is available under the Apache 2.0 license. See the [LICENSE](LICENSE) file for more info.
+
+## Donate
+
+<a class="coinbase-button" data-code="9842e96c725a668ca1a45110f70ec383" data-button-style="custom_small" href="https://www.coinbase.com/checkouts/9842e96c725a668ca1a45110f70ec383">Donate Bitcoins</a><script src="https://www.coinbase.com/assets/button.js" type="text/javascript"></script>
