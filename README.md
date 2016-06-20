@@ -101,4 +101,4 @@ TableViewPopoverPresenting is available under the Apache 2.0 license. See the [L
 
 ## Donate
 
-<a class="coinbase-button" data-code="9842e96c725a668ca1a45110f70ec383" data-button-style="custom_small" href="https://www.coinbase.com/checkouts/9842e96c725a668ca1a45110f70ec383">Donate Bitcoins</a><script src="https://www.coinbase.com/assets/button.js" type="text/javascript"></script>
+<a class="coinbase-button" data-code="65f0369aa2353e9bf731be5674113481" data-button-style="custom_small" href="https://www.coinbase.com/checkouts/65f0369aa2353e9bf731be5674113481">Donate Bitcoins</a><script src="https://www.coinbase.com/assets/button.js" type="text/javascript"></script>
