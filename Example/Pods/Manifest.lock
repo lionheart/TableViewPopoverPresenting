@@ -1,0 +1,16 @@
+PODS:
+  - TableViewPopoverPresenting (1.1.0)
+
+DEPENDENCIES:
+  - TableViewPopoverPresenting (from `../`)
+
+EXTERNAL SOURCES:
+  TableViewPopoverPresenting:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TableViewPopoverPresenting: cfebeeccdfebc4a51a69a70e08d8f58f0342db3c
+
+PODFILE CHECKSUM: 1b282cc7c74adc5a61ca2451e69d0a02983ef735
+
+COCOAPODS: 1.0.1
