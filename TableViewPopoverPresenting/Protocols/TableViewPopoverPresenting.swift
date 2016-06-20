@@ -22,11 +22,19 @@ public protocol TableViewPopoverPresentingHelper: class {
 
 public protocol TableViewPopoverPresenting: class, TableViewPopoverPresentingHelper {
     var tableView: UITableView! { get }
-
-    var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer! { get set }
 }
 
 public extension TableViewPopoverPresenting where Self: UIViewController {
+    var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer {
+        var recognizer: UITapGestureRecognizer!
+        var onceToken: dispatch_once_t = 0
+        dispatch_once(&onceToken) {
+            recognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePopoverGesture(_:)))
+            recognizer.numberOfTapsRequired = 1
+            recognizer.delegate = self
+        }
+        return recognizer
+    }
     /**
      This method instantiates `popoverPresentingTapGestureRecognizer` and adds it to the view controller's table view.
 
@@ -36,10 +44,6 @@ public extension TableViewPopoverPresenting where Self: UIViewController {
      - date: June 19, 2016
      */
     func initializeTableViewPopover() {
-        popoverPresentingTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlePopoverGesture(_:)))
-        popoverPresentingTapGestureRecognizer.numberOfTapsRequired = 1
-        popoverPresentingTapGestureRecognizer.delegate = self
-
         tableView.addGestureRecognizer(popoverPresentingTapGestureRecognizer)
     }
 

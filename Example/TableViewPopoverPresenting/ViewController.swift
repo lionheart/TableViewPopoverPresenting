@@ -11,7 +11,6 @@ import TableViewPopoverPresenting
 
 class ViewController: UITableViewController, TableViewPopoverPresenting, UIPopoverPresentationControllerDelegate {
     let CellIdentifier = "CellIdentifier"
-    var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
