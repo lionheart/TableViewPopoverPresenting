@@ -8,13 +8,4 @@ use_frameworks!
 
 target 'TableViewPopoverPresenting_Example' do
   pod 'TableViewPopoverPresenting', :path => '../'
-
-  pod 'Quick', '~> 0.8'
-  pod 'Nimble', '~> 3.0'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
-
-  target 'TableViewPopoverPresenting_UITests' do
-    inherit! :search_paths
-  end
 end
