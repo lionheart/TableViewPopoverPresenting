@@ -9,7 +9,7 @@ TableViewPopoverPresenting is a simple, drop-in protocol that gives your table v
 
 ![](screenshot.png)
 
-## Example
+## Why Does This Exist
 
 In the good ole' days, in order to present popovers over your table view cells, you had to do a few things:
 
