@@ -75,9 +75,9 @@ pod "TableViewPopoverPresenting"
    func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
        if indexPath.row == 0 {
            let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .ActionSheet)
-           actionSheet.addAction(UIAlertAction(title: "Red", style: .Default)) {}
-           actionSheet.addAction(UIAlertAction(title: "Green", style: .Default)) {}
-           actionSheet.addAction(UIAlertAction(title: "Blue", style: .Default)) {}
+           actionSheet.addAction(UIAlertAction(title: "Red", style: .Default) { _ in })
+           actionSheet.addAction(UIAlertAction(title: "Green", style: .Default) { _ in })
+           actionSheet.addAction(UIAlertAction(title: "Blue", style: .Default) { _ in })
            return actionSheet
        } else {
            return nil
