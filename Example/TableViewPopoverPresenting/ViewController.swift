@@ -27,7 +27,16 @@ class ViewController: UITableViewController, TableViewPopoverPresenting, UIPopov
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
-        cell.textLabel?.text = "Cell #\(indexPath.row)"
+        cell.textLabel?.text = {
+            switch indexPath.row {
+            case 0:
+                return "Colors"
+
+            default:
+                return "Row #\(indexPath.row)"
+            }
+        }()
+
         return cell
     }
 
