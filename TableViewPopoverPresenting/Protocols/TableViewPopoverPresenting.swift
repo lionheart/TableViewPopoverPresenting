@@ -82,7 +82,7 @@ public extension TableViewPopoverPresenting where Self: UIViewController {
     func initializeTableViewPopover() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePopoverGesture(_:)))
         tapGestureRecognizer.numberOfTapsRequired = 1
-        tapGestureRecognizer.delegate = self as? UIGestureRecognizerDelegate
+        tapGestureRecognizer.delegate = self
 
         tableView.addGestureRecognizer(tapGestureRecognizer)
     }
