@@ -59,7 +59,6 @@ class ViewController: UITableViewController, TableViewPopoverPresenting, UIPopov
                 actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel) { _ in })
             }
 
-            actionSheet.modalPresentationStyle = .Popover
             if let popover = actionSheet.popoverPresentationController {
                 popover.delegate = self
             }

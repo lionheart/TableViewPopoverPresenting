@@ -12,7 +12,7 @@ protocol TableViewPopoverPresentingHelper: class {
     func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController?
 }
 
-public protocol TableViewPopoverPresenting: class {
+public protocol TableViewPopoverPresenting: class, UIGestureRecognizerDelegate {
     var tableView: UITableView! { get }
 
     /**
@@ -58,6 +58,8 @@ extension UIViewController: TableViewPopoverPresentingHelper {
         guard let controller = viewControllerForPopoverAtPoint(point) else {
             return
         }
+
+        controller.modalPresentationStyle = .Popover
 
         if let popover = controller.popoverPresentationController {
             popover.sourceView = popoverPresenter.tableView
