@@ -8,7 +8,13 @@
 
 import UIKit
 
-public protocol TableViewPopoverPresentingHelper: class {
+protocol TableViewPopoverPresentingHelper: class {
+    func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController?
+}
+
+public protocol TableViewPopoverPresenting: class {
+    var tableView: UITableView! { get }
+
     /**
      - parameter indexPath: The indexPath to optionally provide a popover for.
      - returns: Optionally returns a UIViewController. If no view controller is returned, no popover will be displayed for this index path.
@@ -16,25 +22,53 @@ public protocol TableViewPopoverPresentingHelper: class {
      - copyright: ©2016 Lionheart Software LLC
      - date: June 19, 2016
      */
-    func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController?
     func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController?
 }
 
-public protocol TableViewPopoverPresenting: class, TableViewPopoverPresentingHelper {
-    var tableView: UITableView! { get }
+extension UIViewController: TableViewPopoverPresentingHelper {
+    func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController? {
+        guard let controller = self as? TableViewPopoverPresenting,
+            let indexPath = controller.tableView.indexPathForRowAtPoint(point) else {
+            return nil
+        }
+
+        return controller.viewControllerForPopoverAtIndexPath(indexPath)
+    }
+
+    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        guard let controller = self as? TableViewPopoverPresenting else {
+            return true
+        }
+
+        if gestureRecognizer is UITapGestureRecognizer {
+            let point = touch.locationInView(controller.tableView)
+            return viewControllerForPopoverAtPoint(point) != nil
+        }
+
+        return false
+    }
+
+    @objc func handlePopoverGesture(gesture: UIGestureRecognizer?) {
+        guard let popoverPresenter = self as? TableViewPopoverPresenting,
+            let gesture = gesture else {
+            return
+        }
+
+        let point = gesture.locationInView(popoverPresenter.tableView)
+        guard let controller = viewControllerForPopoverAtPoint(point) else {
+            return
+        }
+
+        if let popover = controller.popoverPresentationController {
+            popover.sourceView = popoverPresenter.tableView
+            popover.sourceRect = CGRect(x: point.x, y: point.y, width: 1, height: 1)
+        }
+
+        presentViewController(controller, animated: true, completion: nil)
+    }
 }
 
 public extension TableViewPopoverPresenting where Self: UIViewController {
-    var popoverPresentingTapGestureRecognizer: UITapGestureRecognizer {
-        var recognizer: UITapGestureRecognizer!
-        var onceToken: dispatch_once_t = 0
-        dispatch_once(&onceToken) {
-            recognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePopoverGesture(_:)))
-            recognizer.numberOfTapsRequired = 1
-            recognizer.delegate = self
-        }
-        return recognizer
-    }
     /**
      This method instantiates `popoverPresentingTapGestureRecognizer` and adds it to the view controller's table view.
 
@@ -44,45 +78,10 @@ public extension TableViewPopoverPresenting where Self: UIViewController {
      - date: June 19, 2016
      */
     func initializeTableViewPopover() {
-        tableView.addGestureRecognizer(popoverPresentingTapGestureRecognizer)
-    }
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.handlePopoverGesture(_:)))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.delegate = self as? UIGestureRecognizerDelegate
 
-    func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController? {
-        guard let indexPath = tableView.indexPathForRowAtPoint(point) else {
-            return nil
-        }
-
-        return viewControllerForPopoverAtIndexPath(indexPath)
-    }
-}
-
-extension UIViewController: UIGestureRecognizerDelegate {
-    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        guard let controller = self as? TableViewPopoverPresenting else {
-            return true
-        }
-
-        if gestureRecognizer is UITapGestureRecognizer {
-            let location = touch.locationInView(controller.tableView)
-            return controller.viewControllerForPopoverAtPoint(location) != nil
-        }
-
-        return false
-    }
-
-    func handlePopoverGesture(gesture: UIGestureRecognizer?) {
-        guard let popoverPresenter = self as? TableViewPopoverPresenting else {
-            return
-        }
-
-        let location = gesture!.locationInView(popoverPresenter.tableView)
-        if let controller = popoverPresenter.viewControllerForPopoverAtPoint(location) {
-            if let popover = controller.popoverPresentationController {
-                popover.sourceView = popoverPresenter.tableView
-                popover.sourceRect = CGRectMake(location.x, location.y, 1, 1)
-            }
-
-            presentViewController(controller, animated: true, completion: nil)
-        }
+        tableView.addGestureRecognizer(tapGestureRecognizer)
     }
 }
