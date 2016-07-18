@@ -10,6 +10,7 @@ import UIKit
 
 protocol TableViewPopoverPresentingHelper: class {
     func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController?
+    func permittedArrowDirectionsForPopoverAtPoint(point: CGPoint) -> UIPopoverArrowDirection
 }
 
 public protocol TableViewPopoverPresenting: class, UIGestureRecognizerDelegate {
@@ -23,6 +24,7 @@ public protocol TableViewPopoverPresenting: class, UIGestureRecognizerDelegate {
      - date: June 19, 2016
      */
     func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController?
+    func permittedArrowDirectionsForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIPopoverArrowDirection?
 }
 
 extension UIViewController: TableViewPopoverPresentingHelper {
@@ -33,6 +35,16 @@ extension UIViewController: TableViewPopoverPresentingHelper {
         }
 
         return controller.viewControllerForPopoverAtIndexPath(indexPath)
+    }
+
+    func permittedArrowDirectionsForPopoverAtPoint(point: CGPoint) -> UIPopoverArrowDirection {
+        guard let controller = self as? TableViewPopoverPresenting,
+            let indexPath = controller.tableView.indexPathForRowAtPoint(point),
+            let arrowDirections = controller.permittedArrowDirectionsForPopoverAtIndexPath(indexPath) else {
+                return .Any
+        }
+
+        return arrowDirections ?? .Any
     }
 
     public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
