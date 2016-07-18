@@ -75,6 +75,7 @@ extension UIViewController: TableViewPopoverPresentingHelper {
 
         if let popover = controller.popoverPresentationController {
             popover.sourceView = popoverPresenter.tableView
+            popover.permittedArrowDirections = permittedArrowDirectionsForPopoverAtPoint(point)
             popover.sourceRect = CGRect(x: point.x, y: point.y, width: 1, height: 1)
         }
 
