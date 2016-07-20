@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3748047E1D3F9F15008B43A7"
+               BuildableName = "TableViewPopoverPresenting_Tests.xctest"
+               BlueprintName = "TableViewPopoverPresenting_Tests"
+               ReferencedContainer = "container:TableViewPopoverPresenting.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
