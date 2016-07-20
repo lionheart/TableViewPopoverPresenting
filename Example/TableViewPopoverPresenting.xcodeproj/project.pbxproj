@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		374804821D3F9F15008B43A7 /* TableViewPopoverPresenting_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374804811D3F9F15008B43A7 /* TableViewPopoverPresenting_Tests.swift */; };
+		3748048B1D3FA03B008B43A7 /* Pods_TableViewPopoverPresenting_Tests.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3E055366BA89E186D0238E9 /* Pods_TableViewPopoverPresenting_Tests.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3A37DCF9560561E40A4A0D31 /* Pods_TableViewPopoverPresenting_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BC78F73C3E6678A5EC3D1B /* Pods_TableViewPopoverPresenting_Example.framework */; };
 		5D8EAA5725B0ABAD1310DADB /* Pods_TableViewPopoverPresenting_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E055366BA89E186D0238E9 /* Pods_TableViewPopoverPresenting_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -25,6 +26,19 @@
 			remoteInfo = TableViewPopoverPresenting_Example;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		374804891D3FA027008B43A7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3748048B1D3FA03B008B43A7 /* Pods_TableViewPopoverPresenting_Tests.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3748047F1D3F9F15008B43A7 /* TableViewPopoverPresenting_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewPopoverPresenting_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,10 +170,12 @@
 			buildConfigurationList = 374804881D3F9F15008B43A7 /* Build configuration list for PBXNativeTarget "TableViewPopoverPresenting_Tests" */;
 			buildPhases = (
 				DF0335B7824D8136E88D9DE9 /* [CP] Check Pods Manifest.lock */,
+				374804891D3FA027008B43A7 /* CopyFiles */,
 				3748047B1D3F9F15008B43A7 /* Sources */,
 				3748047C1D3F9F15008B43A7 /* Frameworks */,
 				3748047D1D3F9F15008B43A7 /* Resources */,
 				CC52A5CB9978AA42B1BCFD6E /* [CP] Copy Pods Resources */,
+				9D55FF2F31EBAD9638126EC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -261,7 +277,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9D55FF2F31EBAD9638126EC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TableViewPopoverPresenting_Tests/Pods-TableViewPopoverPresenting_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC52A5CB9978AA42B1BCFD6E /* [CP] Copy Pods Resources */ = {
@@ -291,7 +322,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F4064C43D607ABD43059918D /* [CP] Embed Pods Frameworks */ = {
