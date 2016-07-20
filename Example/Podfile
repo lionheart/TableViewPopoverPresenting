@@ -1,11 +1,18 @@
-platform :ios, '9.0'
-
 source 'https://github.com/CocoaPods/Specs.git'
-project 'TableViewPopoverPresenting.xcodeproj'
 
-inhibit_all_warnings!
+project "TableViewPopoverPresenting.xcodeproj"
+
 use_frameworks!
 
 target 'TableViewPopoverPresenting_Example' do
   pod 'TableViewPopoverPresenting', :path => '../'
+
+  target 'TableViewPopoverPresenting_Tests' do
+    inherit! :search_paths
+
+    pod 'Quick', '~> 0.0'
+    pod 'Nimble', '~> 4.0'
+    pod 'FBSnapshotTestCase'
+    pod 'Nimble-Snapshots'
+  end
 end
