@@ -18,51 +18,51 @@ class ViewController: UITableViewController, TableViewPopoverPresenting, UIPopov
         title = "TableViewPopoverPresenting Example"
 
         initializeTableViewPopover()
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: CellIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellIdentifier)
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier)!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier)!
         cell.textLabel?.text = {
-            switch indexPath.row {
+            switch (indexPath as NSIndexPath).row {
             case 0:
                 return "Colors"
 
             default:
-                return "Row #\(indexPath.row)"
+                return "Row #\((indexPath as NSIndexPath).row)"
             }
         }()
 
         return cell
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
 
-        let alert = UIAlertController(title: "Hey", message: "Here be dragons.", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: ":(", style: .Default, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Hey", message: "Here be dragons.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: ":(", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
     // MARK: - TableViewPopoverPresenting
 
-    func permittedArrowDirectionsForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIPopoverArrowDirection? {
+    func permittedArrowDirectionsForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIPopoverArrowDirection? {
         return nil
     }
 
-    func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
-        if indexPath.row == 0 {
-            let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .ActionSheet)
-            actionSheet.addAction(UIAlertAction(title: "Red", style: .Default) { _ in })
-            actionSheet.addAction(UIAlertAction(title: "Green", style: .Default) { _ in })
-            actionSheet.addAction(UIAlertAction(title: "Blue", style: .Default) { _ in })
+    func viewControllerForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIViewController? {
+        if (indexPath as NSIndexPath).row == 0 {
+            let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "Red", style: .default) { _ in })
+            actionSheet.addAction(UIAlertAction(title: "Green", style: .default) { _ in })
+            actionSheet.addAction(UIAlertAction(title: "Blue", style: .default) { _ in })
 
-            if traitCollection.horizontalSizeClass == .Compact {
-                actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel) { _ in })
+            if traitCollection.horizontalSizeClass == .compact {
+                actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in })
             }
 
             if let popover = actionSheet.popoverPresentationController {
@@ -74,8 +74,8 @@ class ViewController: UITableViewController, TableViewPopoverPresenting, UIPopov
         return nil
     }
 
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 }
 
