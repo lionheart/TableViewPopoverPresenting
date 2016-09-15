@@ -4,13 +4,13 @@ PODS:
   - TableViewPopoverPresenting (1.4.1)
 
 DEPENDENCIES:
-  - Nimble (from `https://github.com/Quick/Nimble.git`, branch `swift-3.0`)
+  - Nimble (from `https://github.com/Quick/Nimble.git`, commit `fcc28b2`)
   - Quick (from `https://github.com/Quick/Quick.git`, branch `swift-3.0`)
   - TableViewPopoverPresenting (from `../`)
 
 EXTERNAL SOURCES:
   Nimble:
-    :branch: swift-3.0
+    :commit: fcc28b2
     :git: https://github.com/Quick/Nimble.git
   Quick:
     :branch: swift-3.0
@@ -20,10 +20,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Nimble:
-    :commit: 220152be528dcc0537764c179c95b8174028c80c
+    :commit: fcc28b2
     :git: https://github.com/Quick/Nimble.git
   Quick:
-    :commit: 81d2a7bd95ef91e2604ee0431bba6fe59ad662dc
+    :commit: 8f2bc636ecfa2cc20696f62548b38d4ab943e299
     :git: https://github.com/Quick/Quick.git
 
 SPEC CHECKSUMS:
@@ -31,6 +31,6 @@ SPEC CHECKSUMS:
   Quick: 31fb576b6cbb6b028cc5e0016e4366accbb346f5
   TableViewPopoverPresenting: 4d4970748c909837d32aac2eb1473cf580923d79
 
-PODFILE CHECKSUM: e8c776c7f859b1461f94ae0b117a180684db6041
+PODFILE CHECKSUM: 319e5298fbc088ecdb0103696e8114d1111022c3
 
-COCOAPODS: 1.1.0.beta.2
+COCOAPODS: 1.1.0.rc.2
