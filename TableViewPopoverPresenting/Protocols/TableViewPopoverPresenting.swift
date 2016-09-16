@@ -17,8 +17,8 @@
 import UIKit
 
 protocol TableViewPopoverPresentingHelper: class {
-    func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController?
-    func permittedArrowDirectionsForPopoverAtPoint(point: CGPoint) -> UIPopoverArrowDirection
+    func viewControllerForPopoverAtPoint(_ point: CGPoint) -> UIViewController?
+    func permittedArrowDirectionsForPopoverAtPoint(_ point: CGPoint) -> UIPopoverArrowDirection
 }
 
 public protocol TableViewPopoverPresenting: class, UIGestureRecognizerDelegate {
@@ -31,55 +31,55 @@ public protocol TableViewPopoverPresenting: class, UIGestureRecognizerDelegate {
      - copyright: ©2016 Lionheart Software LLC
      - date: June 19, 2016
      */
-    func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController?
-    func permittedArrowDirectionsForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIPopoverArrowDirection?
+    func viewControllerForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIViewController?
+    func permittedArrowDirectionsForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIPopoverArrowDirection?
 }
 
 extension UIViewController: TableViewPopoverPresentingHelper {
-    func viewControllerForPopoverAtPoint(point: CGPoint) -> UIViewController? {
+    func viewControllerForPopoverAtPoint(_ point: CGPoint) -> UIViewController? {
         guard let controller = self as? TableViewPopoverPresenting,
-            let indexPath = controller.tableView.indexPathForRowAtPoint(point) else {
+            let indexPath = controller.tableView.indexPathForRow(at: point) else {
             return nil
         }
 
         return controller.viewControllerForPopoverAtIndexPath(indexPath)
     }
 
-    func permittedArrowDirectionsForPopoverAtPoint(point: CGPoint) -> UIPopoverArrowDirection {
+    func permittedArrowDirectionsForPopoverAtPoint(_ point: CGPoint) -> UIPopoverArrowDirection {
         guard let controller = self as? TableViewPopoverPresenting,
-            let indexPath = controller.tableView.indexPathForRowAtPoint(point),
+            let indexPath = controller.tableView.indexPathForRow(at: point),
             let arrowDirections = controller.permittedArrowDirectionsForPopoverAtIndexPath(indexPath) else {
-                return .Any
+                return .any
         }
 
-        return arrowDirections ?? .Any
+        return arrowDirections ?? .any
     }
 
-    public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         guard let controller = self as? TableViewPopoverPresenting else {
             return true
         }
 
         if gestureRecognizer is UITapGestureRecognizer {
-            let point = touch.locationInView(controller.tableView)
+            let point = touch.location(in: controller.tableView)
             return viewControllerForPopoverAtPoint(point) != nil
         }
 
         return false
     }
 
-    @objc func handlePopoverGesture(gesture: UIGestureRecognizer?) {
+    @objc func handlePopoverGesture(_ gesture: UIGestureRecognizer?) {
         guard let popoverPresenter = self as? TableViewPopoverPresenting,
             let gesture = gesture else {
             return
         }
 
-        let point = gesture.locationInView(popoverPresenter.tableView)
+        let point = gesture.location(in: popoverPresenter.tableView)
         guard let controller = viewControllerForPopoverAtPoint(point) else {
             return
         }
 
-        controller.modalPresentationStyle = .Popover
+        controller.modalPresentationStyle = .popover
 
         if let popover = controller.popoverPresentationController {
             popover.sourceView = popoverPresenter.tableView
@@ -87,7 +87,7 @@ extension UIViewController: TableViewPopoverPresentingHelper {
             popover.sourceRect = CGRect(x: point.x, y: point.y, width: 1, height: 1)
         }
 
-        presentViewController(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
 }
 
