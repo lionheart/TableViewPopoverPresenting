@@ -67,7 +67,7 @@ pod "TableViewPopoverPresenting"
 2. Implement `viewController(forPopoverAt:)` to define which view controllers to show at which index paths. E.g.:
 
    ```swift
-   func viewController(forPopoverAt: NSIndexPath) -> UIViewController? {
+   func viewController(forPopoverAt: IndexPath) -> UIViewController? {
        if indexPath.row == 0 {
            let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .ActionSheet)
            actionSheet.addAction(UIAlertAction(title: "Red", style: .Default) { _ in })
