@@ -52,7 +52,7 @@ extension UIViewController: TableViewPopoverPresentingHelper {
                 return .any
         }
 
-        return arrowDirections ?? .any
+        return arrowDirections
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
