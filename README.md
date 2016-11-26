@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
 [![Platform](https://img.shields.io/cocoapods/p/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
 
-TableViewPopoverPresenting is a simple, drop-in protocol that gives your table views the power to display presented view controllers in popovers in reaction to a cell tap. It overrides the standard table view tap handler only for the cells which you define it for, and everything else falls back to your existing `didSelectRowAtIndexPath` implementation.
+TableViewPopoverPresenting is a simple, drop-in protocol that gives your table views the power to display presented view controllers in popovers in reaction to a cell tap. It overrides the standard table view tap handler only for the cells which you define it for, and everything else falls back to your existing `tableView(_:didSelectRowAt:)` implementation.
 
 <img src="screenshot.png" width="50%" />
 
