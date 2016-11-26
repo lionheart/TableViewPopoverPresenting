@@ -7,7 +7,7 @@
 
 TableViewPopoverPresenting is a simple, drop-in protocol that gives your table views the power to display presented view controllers in popovers in reaction to a cell tap. It overrides the standard table view tap handler only for the cells which you define it for, and everything else falls back to your existing `didSelectRowAtIndexPath` implementation.
 
-![](screenshot.png)
+<img src="screenshot.png" width="25%" />
 
 ## Why Does This Exist
 
