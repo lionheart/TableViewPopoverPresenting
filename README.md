@@ -28,8 +28,7 @@ Each one of these items requires going through StackOverflow posts with a fine-t
 
 ## Installation
 
-TableViewPopoverPresenting is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+TableViewPopoverPresenting is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "TableViewPopoverPresenting"
@@ -65,10 +64,10 @@ pod "TableViewPopoverPresenting"
    }
    ```
 
-2. Implement `viewControllerForPopoverAtIndexPath` to define which view controllers to show at which index paths. E.g.:
+2. Implement `viewController(forPopoverAt:)` to define which view controllers to show at which index paths. E.g.:
 
    ```swift
-   func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
+   func viewController(forPopoverAt: NSIndexPath) -> UIViewController? {
        if indexPath.row == 0 {
            let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .ActionSheet)
            actionSheet.addAction(UIAlertAction(title: "Red", style: .Default) { _ in })
