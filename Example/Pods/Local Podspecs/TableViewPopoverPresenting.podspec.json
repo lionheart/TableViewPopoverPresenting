@@ -1,6 +1,6 @@
 {
   "name": "TableViewPopoverPresenting",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "summary": "Display popovers on taps over your table views cells. It was hard. Now it's easy.",
   "description": "TableViewPopoverPresenting is a simple, drop-in protocol that gives your\n  table views the power to display presented view controllers in popovers\n  in reaction to a cell tap. It overrides the standard table view tap handler\n  only for the cells which you define it for, and everything else falls back\n  to your existing `didSelectRowAtIndexPath` implementation.",
   "homepage": "https://github.com/lionheart/TableViewPopoverPresenting",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/lionheart/TableViewPopoverPresenting.git",
-    "tag": "1.4.1"
+    "tag": "2.0.0"
   },
   "social_media_url": "https://twitter.com/dwlz",
   "platforms": {
