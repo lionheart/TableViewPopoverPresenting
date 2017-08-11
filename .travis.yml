@@ -3,6 +3,4 @@ script:
 - pod lib lint
 
 language: objective-c
-xcode_workspace: Example/TableViewPopoverPresenting.xcworkspace
-xcode_scheme: TableViewPopoverPresenting-Example
 osx_image: xcode8.3
