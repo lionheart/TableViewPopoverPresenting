@@ -50,11 +50,11 @@ class ViewController: UITableViewController, TableViewPopoverPresenting, UIPopov
 
     // MARK: - TableViewPopoverPresenting
 
-    func permittedArrowDirectionsForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIPopoverArrowDirection? {
+    func permittedArrowDirections(forPopoverAt indexPath: IndexPath) -> UIPopoverArrowDirection? {
         return nil
     }
 
-    func viewControllerForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIViewController? {
+    func viewController(forPopoverAt indexPath: IndexPath) -> UIViewController? {
         if (indexPath as NSIndexPath).row == 0 {
             let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .actionSheet)
             actionSheet.addAction(UIAlertAction(title: "Red", style: .default) { _ in })

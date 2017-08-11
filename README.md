@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
 [![Platform](https://img.shields.io/cocoapods/p/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
 
-TableViewPopoverPresenting is a simple, drop-in protocol that gives your table views the power to display presented view controllers in popovers in reaction to a cell tap. It overrides the standard table view tap handler only for the cells which you define it for, and everything else falls back to your existing `didSelectRowAtIndexPath` implementation.
+TableViewPopoverPresenting is a simple, drop-in protocol that gives your table views the power to display presented view controllers in popovers in reaction to a cell tap. It overrides the standard table view tap handler only for the cells which you define it for, and everything else falls back to your existing `tableView(_:didSelectRowAt:)` implementation.
 
-![](screenshot.png)
+<img src="screenshot.png" width="50%" />
 
 ## Why Does This Exist
 
@@ -17,7 +17,7 @@ In the good ole' days, in order to present popovers over your table view cells, 
 2. Add it to your `UITableView`.
 3. Make your `UIViewController` conform to `UIGestureRecognizerDelegate`.
 4. Create a method to handle the tap.
-5. Make sure the tap gesture recognizer doesn't override the standard `UITableView` touch handlers for `didSelectRowAtIndexPath`.
+5. Make sure the tap gesture recognizer doesn't override the standard `UITableView` touch handlers for `tableView(_:didSelectRowAt:)`.
 6. Find the point where the user tapped.
 7. Retrieve which index path the user tapped corresponding to that point.
 8. Make sure that you actually want to show a view controller at that index path.
@@ -28,8 +28,7 @@ Each one of these items requires going through StackOverflow posts with a fine-t
 
 ## Installation
 
-TableViewPopoverPresenting is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+TableViewPopoverPresenting is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "TableViewPopoverPresenting"
@@ -65,10 +64,10 @@ pod "TableViewPopoverPresenting"
    }
    ```
 
-2. Implement `viewControllerForPopoverAtIndexPath` to define which view controllers to show at which index paths. E.g.:
+2. Implement `viewController(forPopoverAt:)` to define which view controllers to show at which index paths. E.g.:
 
    ```swift
-   func viewControllerForPopoverAtIndexPath(indexPath: NSIndexPath) -> UIViewController? {
+   func viewController(forPopoverAt: IndexPath) -> UIViewController? {
        if indexPath.row == 0 {
            let actionSheet = UIAlertController(title: "Important Question", message: "What's your favorite color?", preferredStyle: .ActionSheet)
            actionSheet.addAction(UIAlertAction(title: "Red", style: .Default) { _ in })
@@ -97,6 +96,6 @@ TableViewPopoverPresenting is available under the Apache 2.0 license. See the [L
 
 ## Donate
 
-Donations help support our open source efforts. As a bonus, you'll get a cool Lionheart Software sticker. 🎉
+Donations help support our open source efforts.
 
 <a href="https://www.coinbase.com/checkouts/0bbaac2f6c0a10f7854c34a0035d0a32" target="_blank">Donate Now</a>

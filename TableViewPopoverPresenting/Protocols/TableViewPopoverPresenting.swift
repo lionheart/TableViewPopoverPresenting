@@ -17,8 +17,8 @@
 import UIKit
 
 protocol TableViewPopoverPresentingHelper: class {
-    func viewControllerForPopoverAtPoint(_ point: CGPoint) -> UIViewController?
-    func permittedArrowDirectionsForPopoverAtPoint(_ point: CGPoint) -> UIPopoverArrowDirection
+    func viewControllerForPopover(atPoint point: CGPoint) -> UIViewController?
+    func permittedArrowDirectionsForPopover(atPoint point: CGPoint) -> UIPopoverArrowDirection
 }
 
 public protocol TableViewPopoverPresenting: class, UIGestureRecognizerDelegate {
@@ -31,28 +31,28 @@ public protocol TableViewPopoverPresenting: class, UIGestureRecognizerDelegate {
      - copyright: ©2016 Lionheart Software LLC
      - date: June 19, 2016
      */
-    func viewControllerForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIViewController?
-    func permittedArrowDirectionsForPopoverAtIndexPath(_ indexPath: IndexPath) -> UIPopoverArrowDirection?
+    func viewController(forPopoverAt indexPath: IndexPath) -> UIViewController?
+    func permittedArrowDirections(forPopoverAt indexPath: IndexPath) -> UIPopoverArrowDirection?
 }
 
 extension UIViewController: TableViewPopoverPresentingHelper {
-    func viewControllerForPopoverAtPoint(_ point: CGPoint) -> UIViewController? {
+    func viewControllerForPopover(atPoint point: CGPoint) -> UIViewController? {
         guard let controller = self as? TableViewPopoverPresenting,
             let indexPath = controller.tableView.indexPathForRow(at: point) else {
             return nil
         }
 
-        return controller.viewControllerForPopoverAtIndexPath(indexPath)
+        return controller.viewController(forPopoverAt: indexPath)
     }
 
-    func permittedArrowDirectionsForPopoverAtPoint(_ point: CGPoint) -> UIPopoverArrowDirection {
+    func permittedArrowDirectionsForPopover(atPoint point: CGPoint) -> UIPopoverArrowDirection {
         guard let controller = self as? TableViewPopoverPresenting,
             let indexPath = controller.tableView.indexPathForRow(at: point),
-            let arrowDirections = controller.permittedArrowDirectionsForPopoverAtIndexPath(indexPath) else {
+            let arrowDirections = controller.permittedArrowDirections(forPopoverAt: indexPath) else {
                 return .any
         }
 
-        return arrowDirections ?? .any
+        return arrowDirections
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
@@ -62,7 +62,7 @@ extension UIViewController: TableViewPopoverPresentingHelper {
 
         if gestureRecognizer is UITapGestureRecognizer {
             let point = touch.location(in: controller.tableView)
-            return viewControllerForPopoverAtPoint(point) != nil
+            return viewControllerForPopover(atPoint: point) != nil
         }
 
         return false
@@ -75,7 +75,7 @@ extension UIViewController: TableViewPopoverPresentingHelper {
         }
 
         let point = gesture.location(in: popoverPresenter.tableView)
-        guard let controller = viewControllerForPopoverAtPoint(point) else {
+        guard let controller = viewControllerForPopover(atPoint: point) else {
             return
         }
 
@@ -83,7 +83,7 @@ extension UIViewController: TableViewPopoverPresentingHelper {
 
         if let popover = controller.popoverPresentationController {
             popover.sourceView = popoverPresenter.tableView
-            popover.permittedArrowDirections = permittedArrowDirectionsForPopoverAtPoint(point)
+            popover.permittedArrowDirections = permittedArrowDirectionsForPopover(atPoint: point)
             popover.sourceRect = CGRect(x: point.x, y: point.y, width: 1, height: 1)
         }
 
