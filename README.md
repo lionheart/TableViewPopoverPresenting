@@ -1,6 +1,6 @@
 # TableViewPopoverPresenting
 
-[![CI Status](http://img.shields.io/travis/lionheart/TableViewPopoverPresenting.svg?style=flat)](https://travis-ci.org/Dan Loewenherz/TableViewPopoverPresenting)
+[![CI Status](http://img.shields.io/travis/lionheart/TableViewPopoverPresenting.svg?style=flat)](https://travis-ci.org/lionheartsw/TableViewPopoverPresenting)
 [![Version](https://img.shields.io/cocoapods/v/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
 [![License](https://img.shields.io/cocoapods/l/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
 [![Platform](https://img.shields.io/cocoapods/p/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
