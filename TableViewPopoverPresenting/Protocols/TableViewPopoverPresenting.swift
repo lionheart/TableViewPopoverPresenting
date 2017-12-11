@@ -76,6 +76,12 @@ extension UIViewController: TableViewPopoverPresentingHelper {
 
         let point = gesture.location(in: popoverPresenter.tableView)
         guard let controller = viewControllerForPopover(atPoint: point) else {
+            guard let delegate = popoverPresenter as? UITableViewDelegate,
+                let indexPath = popoverPresenter.tableView.indexPathForRow(at: point) else {
+                    return
+            }
+
+            delegate.tableView!(popoverPresenter.tableView, didSelectRowAt: indexPath)
             return
         }
 
