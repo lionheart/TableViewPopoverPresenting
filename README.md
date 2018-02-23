@@ -1,4 +1,5 @@
-# TableViewPopoverPresenting
+![](meta/repo-banner.png)
+[![](meta/repo-banner-bottom.png)][lionheart-url]
 
 [![CI Status](http://img.shields.io/travis/lionheart/TableViewPopoverPresenting.svg?style=flat)](https://travis-ci.org/lionheartsw/TableViewPopoverPresenting)
 [![Version](https://img.shields.io/cocoapods/v/TableViewPopoverPresenting.svg?style=flat)](http://cocoapods.org/pods/TableViewPopoverPresenting)
@@ -99,3 +100,6 @@ TableViewPopoverPresenting is available under the Apache 2.0 license. See the [L
 Donations help support our open source efforts.
 
 <a href="https://www.coinbase.com/checkouts/0bbaac2f6c0a10f7854c34a0035d0a32" target="_blank">Donate Now</a>
+
+[lionheart-url]: https://lionheartsw.com/
+
