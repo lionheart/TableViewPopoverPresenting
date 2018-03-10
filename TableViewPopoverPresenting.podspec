@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TableViewPopoverPresenting'
-  s.version          =  "3.1.0"
+  s.version          =  "3.1.1"
   s.summary          = 'Display popovers on taps over your table views cells. It was hard. Now it\'s easy.'
 
   s.description      = %{
