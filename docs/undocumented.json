@@ -1,0 +1,40 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/dan/Projects/TableViewPopoverPresenting/TableViewPopoverPresenting/Protocols/TableViewPopoverPresenting.swift",
+      "line": null,
+      "symbol": "TableViewPopoverPresenting",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/TableViewPopoverPresenting/TableViewPopoverPresenting/Protocols/TableViewPopoverPresenting.swift",
+      "line": 24,
+      "symbol": "TableViewPopoverPresenting",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/TableViewPopoverPresenting/TableViewPopoverPresenting/Protocols/TableViewPopoverPresenting.swift",
+      "line": 25,
+      "symbol": "TableViewPopoverPresenting.tableView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/TableViewPopoverPresenting/TableViewPopoverPresenting/Protocols/TableViewPopoverPresenting.swift",
+      "line": 35,
+      "symbol": "TableViewPopoverPresenting.permittedArrowDirections(forPopoverAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/Projects/TableViewPopoverPresenting/TableViewPopoverPresenting/Protocols/TableViewPopoverPresenting.swift",
+      "line": 58,
+      "symbol": "UIViewController.gestureRecognizer(_:shouldReceiveTouch:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/dan/Projects/TableViewPopoverPresenting"
+}

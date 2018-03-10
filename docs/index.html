@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TableViewPopoverPresenting  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    <style type='text/css'>body { font-family: -apple-system !important; }</style>
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="TableViewPopoverPresenting  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          TableViewPopoverPresenting Docs
+        </a>
+         (28% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/lionheart/TableViewPopoverPresenting">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">TableViewPopoverPresenting Reference</a>
+      <img class="carat" src="img/carat.png" />
+      TableViewPopoverPresenting  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/UIViewController.html">UIViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/TableViewPopoverPresenting.html">TableViewPopoverPresenting</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <p><img src="meta/repo-banner.png" alt="">
+<a href="https://lionheartsw.com/"><img src="meta/repo-banner-bottom.png" alt=""></a></p>
+
+<p><a href="https://travis-ci.org/lionheartsw/TableViewPopoverPresenting"><img src="http://img.shields.io/travis/lionheart/TableViewPopoverPresenting.svg?style=flat" alt="CI Status"></a>
+<a href="http://cocoapods.org/pods/TableViewPopoverPresenting"><img src="https://img.shields.io/cocoapods/v/TableViewPopoverPresenting.svg?style=flat" alt="Version"></a>
+<a href="http://cocoapods.org/pods/TableViewPopoverPresenting"><img src="https://img.shields.io/cocoapods/l/TableViewPopoverPresenting.svg?style=flat" alt="License"></a>
+<a href="http://cocoapods.org/pods/TableViewPopoverPresenting"><img src="https://img.shields.io/cocoapods/p/TableViewPopoverPresenting.svg?style=flat" alt="Platform"></a></p>
+
+<p>TableViewPopoverPresenting is a simple, drop-in protocol that gives your table views the power to display presented view controllers in popovers in reaction to a cell tap. It overrides the standard table view tap handler only for the cells which you define it for, and everything else falls back to your existing <code>tableView(_:didSelectRowAt:)</code> implementation.</p>
+
+<p><img src="screenshot.png" width="50%" /></p>
+<h2 id='why-does-this-exist' class='heading'>Why Does This Exist</h2>
+
+<p>In the good ole&rsquo; days, in order to present popovers over your table view cells, you had to do a few things:</p>
+
+<ol>
+<li>Instantiate a <code>UITapGestureRecognizer</code>.</li>
+<li>Add it to your <code>UITableView</code>.</li>
+<li>Make your <code>UIViewController</code> conform to <code>UIGestureRecognizerDelegate</code>.</li>
+<li>Create a method to handle the tap.</li>
+<li>Make sure the tap gesture recognizer doesn&rsquo;t override the standard <code>UITableView</code> touch handlers for <code>tableView(_:didSelectRowAt:)</code>.</li>
+<li>Find the point where the user tapped.</li>
+<li>Retrieve which index path the user tapped corresponding to that point.</li>
+<li>Make sure that you actually want to show a view controller at that index path.</li>
+<li>Decide on which view controller to show.</li>
+<li>And finally, present the view controller exactly where the user tapped in a popover.</li>
+</ol>
+
+<p>Each one of these items requires going through StackOverflow posts with a fine-toothed comb to make sure you&rsquo;re doing everything the <q>right</q> way. Obviously, that&rsquo;s lame. You shouldn&rsquo;t need to do all of this work for something which should be simple. And that&rsquo;s where TableViewPopoverPresenting comes in.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>TableViewPopoverPresenting is available through <a href="http://cocoapods.org">CocoaPods</a>. To install it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s2">"TableViewPopoverPresenting"</span>
+</code></pre>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<ol>
+<li>Install TableViewPopoverPresenting through Cocoapods by adding the following line to your Podfile.</li>
+</ol>
+<pre class="highlight ruby"><code>   <span class="n">pod</span> <span class="s2">"TableViewPopoverPresenting"</span>
+</code></pre>
+
+<ol>
+<li>Import <code><a href="Protocols/TableViewPopoverPresenting.html">TableViewPopoverPresenting</a></code> in the file with your table view controller.</li>
+</ol>
+<pre class="highlight swift"><code>   <span class="kd">import</span> <span class="kt">TableViewPopoverPresenting</span>
+</code></pre>
+<h4 id='now-for-each-view-controller-do-the-following' class='heading'>Now, for each view controller, do the following:</h4>
+
+<ol>
+<li>Call <code>initializeTableViewPopover</code> in <code>viewDidLoad</code>:</li>
+</ol>
+<pre class="highlight swift"><code>   <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+       <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+
+       <span class="cp"># ...</span>
+
+       <span class="nf">initializeTableViewPopover</span><span class="p">()</span>
+
+       <span class="cp"># ...</span>
+   <span class="p">}</span>
+</code></pre>
+
+<ol>
+<li>Implement <code>viewController(forPopoverAt:)</code> to define which view controllers to show at which index paths. E.g.:</li>
+</ol>
+<pre class="highlight swift"><code>   <span class="kd">func</span> <span class="nf">viewController</span><span class="p">(</span><span class="nv">forPopoverAt</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span> <span class="p">{</span>
+       <span class="k">if</span> <span class="n">indexPath</span><span class="o">.</span><span class="n">row</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+           <span class="k">let</span> <span class="nv">actionSheet</span> <span class="o">=</span> <span class="kt">UIAlertController</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Important Question"</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"What's your favorite color?"</span><span class="p">,</span> <span class="nv">preferredStyle</span><span class="p">:</span> <span class="o">.</span><span class="kt">ActionSheet</span><span class="p">)</span>
+           <span class="n">actionSheet</span><span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="kt">UIAlertAction</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Red"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Default</span><span class="p">)</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
+           <span class="n">actionSheet</span><span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="kt">UIAlertAction</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Green"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Default</span><span class="p">)</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
+           <span class="n">actionSheet</span><span class="o">.</span><span class="nf">addAction</span><span class="p">(</span><span class="kt">UIAlertAction</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="s">"Blue"</span><span class="p">,</span> <span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Default</span><span class="p">)</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="p">})</span>
+           <span class="k">return</span> <span class="n">actionSheet</span>
+       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+           <span class="k">return</span> <span class="kc">nil</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+</code></pre>
+
+<p>And&hellip;that&rsquo;s it. You&rsquo;re done. A nice action sheet will appear when a tap is detected on the first row of any section. Easy, right?</p>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<p>None.</p>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>Dan Loewenherz, <a href="mailto:dan@lionheartsw.com">dan@lionheartsw.com</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>TableViewPopoverPresenting is available under the Apache 2.0 license. See the <a href="LICENSE">LICENSE</a> file for more info.</p>
+<h2 id='donate' class='heading'>Donate</h2>
+
+<p>Donations help support our open source efforts.</p>
+
+<p><a href="https://www.coinbase.com/checkouts/0bbaac2f6c0a10f7854c34a0035d0a32" target="_blank">Donate Now</a></p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2016-2017 Lionheart Software LLC</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
